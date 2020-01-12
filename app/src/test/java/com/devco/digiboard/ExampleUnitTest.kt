@@ -1,4 +1,4 @@
-package com.studycafe.digiboard
+package com.devco.digiboard
 
 import org.junit.Test
 
