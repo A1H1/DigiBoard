@@ -18,6 +18,8 @@ abstract class BaseFragment : DaggerFragment() {
     @LayoutRes
     protected abstract fun layoutRes(): Int
 
+    protected abstract fun init()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,6 +28,11 @@ abstract class BaseFragment : DaggerFragment() {
         val view = inflater.inflate(layoutRes(), container, false)
         unbinder = ButterKnife.bind(this, view)
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
     }
 
     override fun onAttach(context: Context) {

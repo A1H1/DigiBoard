@@ -9,9 +9,12 @@ abstract class BaseActivity : DaggerAppCompatActivity() {
     @LayoutRes
     protected abstract fun layoutRes(): Int
 
+    protected abstract fun init()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layoutRes())
         ButterKnife.bind(this)
+        init()
     }
 }
